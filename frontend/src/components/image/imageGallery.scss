@@ -1,0 +1,12 @@
+.image-gallery-lightbox {
+  display: grid;
+  gap: 10px;
+
+  grid-template-columns: repeat(8, 130px);
+
+  img {
+    width: 130px !important;
+    height: 110px !important;
+    object-fit: cover;
+  }
+}

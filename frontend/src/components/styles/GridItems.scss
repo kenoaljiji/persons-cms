@@ -1,0 +1,203 @@
+.authors {
+  .flex-center {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+
+    @media only screen and (max-width: 700px) {
+    }
+
+    .firstRowItem {
+      img {
+        width: 171px;
+      }
+    }
+  }
+  .grid {
+    display: flex;
+    justify-content: center;
+    grid-template-rows: repeat(1fr);
+    flex-wrap: wrap;
+
+    column-gap: 16px;
+    width: 100%;
+    height: 100%;
+
+    margin-top: 25px;
+
+    @media only screen and (max-width: 700px) {
+      display: grid;
+      grid-template-columns: 171px;
+
+      .img-container {
+        h5 {
+          width: 171px;
+        }
+      }
+    }
+
+    @media only screen and (max-width: 1200px) {
+      .items {
+        width: 33%;
+        img {
+          height: 227px;
+        }
+      }
+      div.items.div1 > a > div.img-container,
+      div.items.div3 > a > div.img-container {
+        margin-left: auto;
+      }
+    }
+
+    @media only screen and (max-width: 700px) {
+      .items {
+        width: 33%;
+      }
+      .div1 > .img-container,
+      .div2 > .img-container,
+      .div3 > .img-container,
+      .div4 > .img-container {
+        margin: 0 auto;
+      }
+    }
+
+    @media only screen and (max-width: 700px) {
+      .div1 > .img-container,
+      .div2 > .img-container,
+      .div3 > .img-container,
+      .div4 > .img-container {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .custom-slider {
+    max-width: 965px;
+    margin: 0 auto;
+
+    @media only screen and (max-width: 1200px) {
+      max-width: 770px;
+    }
+    @media only screen and (max-width: 993px) {
+      max-width: 580px;
+    }
+  }
+  .slide-item {
+    margin: 0 auto;
+    margin: 0 5px; /* Adjust margins as needed (top, right, bottom, left) */
+
+    @media only screen and (max-width: 700px) {
+      display: flex !important;
+      justify-content: center !important;
+      width: 98% !important;
+    }
+  }
+
+  .slick-slide .slick-cloned {
+    width: 220px !important;
+  }
+
+  .slick-next:before {
+    content: ''; /* Required for the pseudo-element to display */
+    position: relative;
+    top: -13px;
+    display: block; /* Makes it possible to apply width and height */
+    width: 20px; /* Set the width of the image */
+    height: 40px; /* Set the height of the image */
+    background-image: url('../../../public/assets/images/arrowRight.png');
+    background-size: cover; /* Ensures the image covers the pseudo-element */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    color: #000; /* This won't affect the image but is left here if needed for other styling */
+
+    @media only screen and (max-width: 700px) {
+      color: #fff;
+    }
+  }
+
+  .slick-arrow.slick-prev {
+    left: -35px !important;
+
+    @media only screen and (max-width: 700px) {
+      left: 10px !important;
+    }
+  }
+
+  .slick-arrow.slick-next {
+    @media only screen and (max-width: 700px) {
+      right: 10px;
+    }
+  }
+
+  .slick-prev:before {
+    content: '';
+    position: relative;
+    top: -13px; /* Required for the pseudo-element to display */
+    display: block; /* Makes it possible to apply width and height */
+    width: 20px; /* Set the width of the image */
+    height: 40px; /* Set the height of the image */
+    background-image: url('../../../public/assets/images/arrowLeft.png');
+    background-size: cover; /* Ensures the image covers the pseudo-element */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    color: #000; /* This won't affect the image but is left here if needed for other styling */
+
+    @media only screen and (max-width: 700px) {
+      color: #fff; /* This won't affect the image but is left here if needed for other styling */
+    }
+  }
+
+  .swiper-wrapper {
+    gap: 5px;
+
+    .swiper-slide {
+      /* width:190px!important; */
+      width: 171.01px !important;
+    }
+    .img-container {
+      width: 100%;
+    }
+  }
+
+  .img-container {
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+
+    @media only screen and (max-width: 700px) {
+      max-width: 171px;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+    h5 {
+      position: absolute;
+
+      bottom: 0px;
+      width: 100%;
+      margin: 0;
+      padding-bottom: 4px;
+      background-color: rgba(0, 0, 0, 0.568);
+      color: #eee;
+      font-size: 20px;
+      font-weight: 400;
+      text-align: center;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+  }
+
+  img {
+    height: 100%; // Preserve aspect ratio
+    min-width: 171.01px !important;
+    border-radius: 5px;
+  }
+
+  .custom-slider {
+    position: relative;
+    z-index: 7777;
+
+    button {
+      background: black;
+    }
+  }
+}
