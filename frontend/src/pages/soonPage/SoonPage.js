@@ -1,41 +1,7 @@
 import React, { useEffect, useState } from "react";
-
 import { useRouteContext } from "../../context/route/RouteProvider";
 import { useGlobalContext } from "../../context/bpikd/GlobalState";
-/* import "./news.scss"; */
 import { ContentComponent } from "../../components/ContentComponent";
-
-/* export function ContentComponent({ content }) {
-  const [shortenedContent, setShortenedContent] = useState('');
-
-  useEffect(() => {
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(content, 'text/html');
-    const textContent = doc.body.textContent || '';
-
-    // Truncate the text content to the first sentence or up to a maximum character length.
-    const maxCharacters = 250;
-    let shortened = textContent.substr(0, maxCharacters).trim();
-    const lastSpaceIndex = shortened.lastIndexOf(' ');
-
-    // Try to avoid cutting words in half
-    if (lastSpaceIndex > 0 && lastSpaceIndex < maxCharacters) {
-      shortened = shortened.substr(0, lastSpaceIndex);
-    }
-
-    if (textContent.length > maxCharacters) {
-      shortened += '...';
-    }
-
-    // Re-sanitize and set the shortened content.
-    // This does not preserve HTML formatting since it might introduce complexity with unmatched tags.
-    // If preserving HTML tags up to the truncation point is critical, a more sophisticated approach is needed.
-    const sanitizedShortenedContent = DOMPurify.sanitize(shortened);
-    setShortenedContent(sanitizedShortenedContent);
-  }, [content]);
-
-  return <div dangerouslySetInnerHTML={{ __html: shortenedContent }} />;
-} */
 
 const SoonPage = () => {
   const { state } = useRouteContext();
