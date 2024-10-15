@@ -17,9 +17,9 @@ const app = express();
 app.use("/", userRoutes);
 
 app.use("/sort", sortRoutes);
-
+/* 
 app.use("/", express.static("public/works"));
-app.use("/", express.static("public"));
+app.use("/", express.static("public")); */
 
 app.use("/settings", textSettingRoutes);
 
