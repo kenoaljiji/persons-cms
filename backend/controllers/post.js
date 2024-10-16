@@ -1,11 +1,11 @@
-import Person from '../models/personPost.js';
-import News from '../models/news.js';
-import { agenda } from '../utils/agenda.js'; // Ensure this path is correct
-import { replaceDiacritics } from '../utils/replaceDiacritics.js';
+import Person from "../models/personPost.js";
+import News from "../models/news.js";
+import { agenda } from "../utils/agenda.js"; // Ensure this path is correct
+import { replaceDiacritics } from "../utils/replaceDiacritics.js";
 
-import moment from 'moment-timezone';
+import moment from "moment-timezone";
 
-import User from '../models/admin.js';
+import User from "../models/admin.js";
 
 // Assuming 'scheduledPublishTime' is in local time and you want to convert it to UTC
 
@@ -28,11 +28,11 @@ export const addOrUpdatePersonAndWork = async (req, res) => {
 
   try {
     let existingPerson = await Person.findOne({
-      'person.firstName': {
-        $regex: new RegExp('^' + personData.firstName + '$', 'i'),
+      "person.firstName": {
+        $regex: new RegExp("^" + personData.firstName + "$", "i"),
       },
-      'person.lastName': {
-        $regex: new RegExp('^' + personData.lastName + '$', 'i'),
+      "person.lastName": {
+        $regex: new RegExp("^" + personData.lastName + "$", "i"),
       },
     });
 
@@ -44,7 +44,7 @@ export const addOrUpdatePersonAndWork = async (req, res) => {
       req.files.featuredImage.length > 0
     ) {
       const file = req.files.featuredImage[0];
-      featuredImage = `${req.protocol}://${req.get('host')}/uploads/${
+      featuredImage = `${req.protocol}://${req.get("host")}/api/uploads/${
         file.filename
       }`;
     } else {
@@ -54,36 +54,36 @@ export const addOrUpdatePersonAndWork = async (req, res) => {
     // Assuming the featured image is uploaded with the field name 'featuredImage
     // Construct media object from uploaded files
     const mediaFiles = {
-      images: req.files['images']
-        ? req.files['images'].map((file) => ({
-            url: `${req.protocol}://${req.get('host')}/uploads/${
+      images: req.files["images"]
+        ? req.files["images"].map((file) => ({
+            url: `${req.protocol}://${req.get("host")}/api/uploads/${
               file.filename
             }`,
             name: file.name,
             type: file.mimetype,
           }))
         : [],
-      audios: req.files['audios']
-        ? req.files['audios'].map((file) => ({
-            url: `${req.protocol}://${req.get('host')}/uploads/${
+      audios: req.files["audios"]
+        ? req.files["audios"].map((file) => ({
+            url: `${req.protocol}://${req.get("host")}/api/uploads/${
               file.filename
             }`,
             name: file.originalname,
             fileType: file.mimetype,
           }))
         : [],
-      videos: req.files['videos']
-        ? req.files['videos'].map((file) => ({
-            url: `${req.protocol}://${req.get('host')}/uploads/${
+      videos: req.files["videos"]
+        ? req.files["videos"].map((file) => ({
+            url: `${req.protocol}://${req.get("host")}/api/uploads/${
               file.filename
             }`,
             name: file.originalname,
             fileType: file.mimetype,
           }))
         : [],
-      documents: req.files['documents']
-        ? req.files['documents'].map((file) => ({
-            url: `${req.protocol}://${req.get('host')}/uploads/${
+      documents: req.files["documents"]
+        ? req.files["documents"].map((file) => ({
+            url: `${req.protocol}://${req.get("host")}/api/uploads/${
               file.filename
             }`,
             name: file.originalname,
@@ -113,7 +113,7 @@ export const addOrUpdatePersonAndWork = async (req, res) => {
 
     // Now convert the ISO format date to UTC with moment-timezone
     const scheduledTimeUTC = moment
-      .tz(scheduledPublishTime, 'Europe/Berlin')
+      .tz(scheduledPublishTime, "Europe/Berlin")
       .utc()
       .toISOString();
 
@@ -131,26 +131,26 @@ export const addOrUpdatePersonAndWork = async (req, res) => {
 
       const savedPerson = await newPerson.save();
       workId = savedPerson.works[savedPerson.works.length - 1]._id;
-      workAction = 'created';
+      workAction = "created";
     } else {
       existingPerson.works.push(newWork);
       const updatedPerson = await existingPerson.save();
       workId = updatedPerson.works[updatedPerson.works.length - 1]._id;
-      workAction = 'added to existing person';
+      workAction = "added to existing person";
     }
 
     // Schedule publication if required
-    if (publishTime === 'Schedule' && scheduledPublishTime) {
-      await agenda.schedule(scheduledTimeUTC, 'publish work', { workId });
+    if (publishTime === "Schedule" && scheduledPublishTime) {
+      await agenda.schedule(scheduledTimeUTC, "publish work", { workId });
       publicationStatus = `scheduled for ${scheduledPublishTime}`;
-    } else publicationStatus = 'published immediately';
+    } else publicationStatus = "published immediately";
 
     const message = `Work ${workAction} and ${publicationStatus}.`;
 
     return res.status(200).json({ message: message, workId });
   } catch (error) {
     console.error(error);
-    return res.status(500).json({ error: 'Internal Server Error' });
+    return res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
@@ -158,13 +158,13 @@ export const addNews = async (req, res) => {
   let data;
 
   try {
-    if (typeof req.body.data === 'string') {
+    if (typeof req.body.data === "string") {
       data = JSON.parse(req.body.data);
     } else {
       data = req.body;
     }
   } catch (error) {
-    return res.status(400).json({ error: 'Invalid JSON data provided.' });
+    return res.status(400).json({ error: "Invalid JSON data provided." });
   }
   const {
     category,
@@ -180,7 +180,7 @@ export const addNews = async (req, res) => {
   let featuredImage;
   if (req.files?.featuredImage?.[0]) {
     const file = req.files.featuredImage[0];
-    featuredImage = `${req.protocol}://${req.get('host')}/uploads/${
+    featuredImage = `${req.protocol}://${req.get("host")}/api/uploads/${
       file.filename
     }`;
   } else {
@@ -195,11 +195,11 @@ export const addNews = async (req, res) => {
     category,
     title,
     content,
-    publishTime: publishTime !== 'Schedule' ? new Date() : null,
+    publishTime: publishTime !== "Schedule" ? new Date() : null,
     scheduledPublishTime,
     externalSource,
     visibility,
-    isPublished: isPublished === 'true', // Convert to boolean if necessary
+    isPublished: isPublished === "true", // Convert to boolean if necessary
     featured: featuredImage,
     createdBy: user.username, // or user.username, depending on your schema
   };
@@ -208,12 +208,12 @@ export const addNews = async (req, res) => {
     const newsItem = new News(newNewsItem);
     const savedNewsItem = await newsItem.save();
 
-    if (publishTime === 'Schedule' && scheduledPublishTime) {
+    if (publishTime === "Schedule" && scheduledPublishTime) {
       const scheduledTimeUTC = moment
-        .tz(scheduledPublishTime, 'Europe/Berlin')
+        .tz(scheduledPublishTime, "Europe/Berlin")
         .utc()
         .toISOString();
-      await agenda.schedule(scheduledTimeUTC, 'publish news', {
+      await agenda.schedule(scheduledTimeUTC, "publish news", {
         newsItemId: savedNewsItem._id,
       });
     }
@@ -221,7 +221,7 @@ export const addNews = async (req, res) => {
     return res.status(201).json(savedNewsItem);
   } catch (error) {
     console.error(error);
-    return res.status(500).json({ error: 'Internal Server Error' });
+    return res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
@@ -232,21 +232,20 @@ export const displayPersonDetails = async (req, res) => {
     const person = await Person.findById(personId);
     res.json(person.person); // Send the 'person' subdocument as the response
   } catch (error) {
-    console.error('Failed to fetch person details:', error);
-    res.status(500).send('Failed to fetch person details');
+    console.error("Failed to fetch person details:", error);
+    res.status(500).send("Failed to fetch person details");
   }
 };
 
 // Display detailed data of a specific person, including populated works
 export const displayPersonData = async (req, res) => {
-  console.log(req);
   try {
     const personId = req.params.id;
-    const person = await Person.findById(personId).populate('works');
+    const person = await Person.findById(personId).populate("works");
     res.json(person); // Send the entire person document as the response
   } catch (error) {
-    console.error('Failed to fetch person data:', error);
-    res.status(500).send('Failed to fetch person data');
+    console.error("Failed to fetch person data:", error);
+    res.status(500).send("Failed to fetch person data");
   }
 };
 
@@ -256,17 +255,17 @@ export const getAllPersons = async (req, res) => {
     const persons = await Person.find(
       {},
       {
-        'person.firstName': 1,
-        'person.lastName': 1,
-        'person.aboutPerson': 1,
-        'person.featured': 1,
-        'person.createdBy': 1,
+        "person.firstName": 1,
+        "person.lastName": 1,
+        "person.aboutPerson": 1,
+        "person.featured": 1,
+        "person.createdBy": 1,
       }
     );
     res.json(persons); // Send the list of persons as the response
   } catch (error) {
-    console.error('Failed to fetch persons:', error);
-    res.status(500).send('Failed to fetch persons');
+    console.error("Failed to fetch persons:", error);
+    res.status(500).send("Failed to fetch persons");
   }
 };
 
@@ -277,7 +276,7 @@ export const searchUsersByPartialName = async (req, res) => {
 
   const replaceReg = replaceDiacritics(searchQuery);
 
-  const regex = new RegExp(replaceReg, 'i');
+  const regex = new RegExp(replaceReg, "i");
 
   try {
     // Use a regular expression for partial, case-insensitive matching
@@ -286,25 +285,25 @@ export const searchUsersByPartialName = async (req, res) => {
     // Search for users where either first name or last name matches the regex
     const users = await Person.find(
       {
-        $or: [{ 'person.firstName': regex }, { 'person.lastName': regex }],
+        $or: [{ "person.firstName": regex }, { "person.lastName": regex }],
       },
       // Project only specific fields and exclude 'person.aboutPerson'
       {
-        'person.firstName': 1,
-        'person.lastName': 1,
-        'person.featured': 1,
+        "person.firstName": 1,
+        "person.lastName": 1,
+        "person.featured": 1,
         // Do not try to exclude 'person.aboutPerson' here; it's implicitly excluded by not being included.
       }
     ).lean(); // Add
 
     if (users.length === 0) {
-      return res.status(404).json({ message: 'No users found.' });
+      return res.status(404).json({ message: "No users found." });
     }
 
     res.json(users);
   } catch (error) {
-    console.error('Search users by partial name error:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    console.error("Search users by partial name error:", error);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
@@ -315,16 +314,16 @@ export async function deletePost(req, res) {
 
     const post = await Person.findByIdAndDelete(postId);
     if (!post) {
-      return res.status(404).json({ message: 'Post not found.' });
+      return res.status(404).json({ message: "Post not found." });
     }
 
     // Post deleted successfully
-    res.json({ message: 'Post deleted successfully.' });
+    res.json({ message: "Post deleted successfully." });
   } catch (error) {
     console.error(error);
     res
       .status(500)
-      .json({ message: 'An error occurred while deleting the post.' });
+      .json({ message: "An error occurred while deleting the post." });
   }
 }
 
@@ -347,6 +346,6 @@ export async function deleteMultiplePosts(req, res) {
     console.error(error);
     res
       .status(500)
-      .json({ message: 'An error occurred while deleting posts.' });
+      .json({ message: "An error occurred while deleting posts." });
   }
 }

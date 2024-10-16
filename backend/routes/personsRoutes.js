@@ -92,7 +92,7 @@ router.post(
           req.files[type].forEach((file) => {
             const url = `${req.protocol}://${req.get(
               "host"
-            )}/person-of-interest/${slugifyFullName}/${slugify(
+            )}/api/person-of-interest/${slugifyFullName}/${slugify(
               title
             )}/${type}/${slugify(file.originalname)}`;
             const mediaItem = {

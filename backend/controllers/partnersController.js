@@ -1,5 +1,5 @@
-import pool from '../db/config';
-import { baseRoute } from '../helpers/config';
+import pool from "../db/config";
+import { baseRoute } from "../helpers/config";
 
 let protocol = process.env.PROTOCOL;
 
@@ -7,7 +7,7 @@ export const updateCreatePartners = async (req, res) => {
   let conn;
   try {
     conn = await pool.getConnection();
-    const companiesData = JSON.parse(req.body.companies || '[]');
+    const companiesData = JSON.parse(req.body.companies || "[]");
 
     const results = await Promise.all(
       companiesData.map(async (company, index) => {
@@ -18,17 +18,17 @@ export const updateCreatePartners = async (req, res) => {
 
         if (file) {
           // New file uploaded, update the path
-          filePath = `${protocol}://${req.get(
-            'host'
-          )}/${baseRoute}/uploads/partners/${file.filename}`;
+          filePath = `${protocol}://${req.get("host")}/api/uploads/partners/${
+            file.filename
+          }`;
           // Overwrite logic: remove old file if new one uploaded
           fs.unlinkSync(
-            `./public/uploads/partners/${company.src.split('/').pop()}`
+            `./public/uploads/partners/${company.src.split("/").pop()}`
           );
         } else if (company.id) {
           // No new file uploaded, attempt to reuse existing path
           const [existing] = await conn.query(
-            'SELECT src FROM partners WHERE id = ?',
+            "SELECT src FROM partners WHERE id = ?",
             [company.id]
           );
           filePath = existing.length > 0 ? existing[0].src : filePath;
@@ -37,7 +37,7 @@ export const updateCreatePartners = async (req, res) => {
         if (company.id) {
           // Update existing record
           await conn.query(
-            'UPDATE footer_companies SET company = ?, description = ?, url = ?, src = ? WHERE id = ?',
+            "UPDATE footer_companies SET company = ?, description = ?, url = ?, src = ? WHERE id = ?",
             [
               company.company,
               company.description,
@@ -49,7 +49,7 @@ export const updateCreatePartners = async (req, res) => {
         } else {
           // Insert new record
           const result = await conn.query(
-            'INSERT INTO footer_companies (company, description, url, src) VALUES (?, ?, ?, ?)',
+            "INSERT INTO footer_companies (company, description, url, src) VALUES (?, ?, ?, ?)",
             [company.company, company.description, company.url, filePath]
           );
           company.id = result.insertId;
@@ -60,12 +60,12 @@ export const updateCreatePartners = async (req, res) => {
     );
 
     res.json({
-      message: 'Footer configuration updated successfully',
+      message: "Footer configuration updated successfully",
       data: results,
     });
   } catch (error) {
-    console.error('Failed to update footer configuration:', error);
-    res.status(500).send('Server error: ' + error.message);
+    console.error("Failed to update footer configuration:", error);
+    res.status(500).send("Server error: " + error.message);
   } finally {
     if (conn) {
       conn.release();

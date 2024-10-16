@@ -82,7 +82,7 @@ export const addOrUpdatePersonAndWork = async (req, res) => {
 
     let featuredImage =
       req.files && req.files.featuredImage && req.files.featuredImage[0]
-        ? `${protocol}://${req.get("host")}/featured/${
+        ? `${protocol}://${req.get("host")}/api/featured/${
             req.files.featuredImage[0].filename
           }`
         : null;
@@ -165,9 +165,9 @@ export const addOrUpdatePersonAndWork = async (req, res) => {
         req.files[type].forEach((file) => {
           const filePath = `${protocol}://${req.get(
             "host"
-          )}/person-of-interest/${fullName}/${slugify(title)}/${type}/${slugify(
-            file.originalname
-          )}`;
+          )}/api/person-of-interest/${fullName}/${slugify(
+            title
+          )}/${type}/${slugify(file.originalname)}`;
           media[type].push({
             url: filePath,
             name: file.originalname,
@@ -448,7 +448,7 @@ export const updatePersonBasicById = async (req, res) => {
     const { firstName, lastName, aboutPerson, featured } = data;
 
     let featuredImage = req.file
-      ? `${protocol}://${req.get("host")}/featured/${req.file.filename}`
+      ? `${protocol}://${req.get("host")}/api/featured/${req.file.filename}`
       : featured;
 
     const query = `
