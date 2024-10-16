@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useGlobalContext } from '../../context/bpikd/GlobalState';
 import AddImageIcon from '../../icons/AddImageIcon';
@@ -569,7 +569,7 @@ const CreateEditPost = () => {
                 }
               }}
             >
-              {({ setFieldValue, values, handleSubmit }) => (
+              {({ setFieldValue, values, handleSubmit, errors, touched }) => (
                 <Form>
                   <div className='row'>
                     <div className='col-md-8'>
@@ -610,7 +610,7 @@ const CreateEditPost = () => {
                               <Field
                                 as='textarea'
                                 className='form-control'
-                                style={{ padding: '20px' }}
+                                style={{ padding: '20px', minHeight: '270px' }}
                                 name='person.aboutPerson'
                                 placeholder='About person'
                                 required
@@ -621,7 +621,7 @@ const CreateEditPost = () => {
                         <Field
                           as='textarea'
                           className='form-control mb-1'
-                          style={{ padding: '20px', height: '280px' }}
+                          style={{ padding: '20px', minHeight: '100px' }}
                           name='title'
                           placeholder='Title'
                           required
@@ -693,16 +693,18 @@ const CreateEditPost = () => {
                         </div>
                       )}
                       {category !== 'Person of Interest' && (
-                        <ReactQuill
-                          className='react-quill'
-                          theme='snow'
-                          value={values.content}
-                          onChange={(content) =>
-                            setFieldValue('content', content)
-                          }
-                          modules={modules}
-                          required
-                        />
+                        <div>
+                          <ReactQuill
+                            className='react-quill'
+                            theme='snow'
+                            value={values.content}
+                            onChange={(content) =>
+                              setFieldValue('content', content)
+                            }
+                            modules={modules}
+                            required
+                          />
+                        </div>
                       )}
                     </div>
 

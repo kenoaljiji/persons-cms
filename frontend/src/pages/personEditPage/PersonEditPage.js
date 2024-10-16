@@ -45,11 +45,11 @@ const PersonEditPage = () => {
   } = usePreviewContext();
 
   const [imageURL, setImageURL] = useState(singlePost?.featured);
+
   const [isPublished, setIsPublished] = useState(true);
   const [loading, setIsLoading] = useState(false);
   const [featuredImage, setFeaturedImage] = useState('');
 
-  const [media, setMedia] = useState([]);
   const [works, setWorks] = useState([singlePost?.works]);
 
   const [singleWork, setSingleWork] = useState();
@@ -159,8 +159,6 @@ const PersonEditPage = () => {
   const fullName = `${singlePost?.firstName}-${singlePost?.lastName}`;
 
   useEffect(() => {
-    console.log('Checking singlePost:', singlePost);
-
     if (Object.keys(previewPost).length > 0) {
       setInitialValues((prev) => ({
         ...prev,
@@ -302,16 +300,6 @@ const PersonEditPage = () => {
     isPublished: Yup.boolean(),
     category: Yup.string(),
   });
-
-  const cleanMedia = (media) => {
-    const cleanedMedia = {};
-    Object.keys(media).forEach((key) => {
-      if (media[key].length > 0) {
-        cleanedMedia[key] = media[key];
-      }
-    });
-    return cleanedMedia;
-  };
 
   const modules = {
     toolbar: [
@@ -490,10 +478,6 @@ const PersonEditPage = () => {
     }
   };
 
-  /*   useEffect(() => {
-    console.log(previewPost);
-  }, [previewPost]); */
-
   // Assemble data for preview when both forms have been submitted
   useEffect(() => {
     if (personData && workData) {
@@ -521,6 +505,7 @@ const PersonEditPage = () => {
       };
       previewSinglePost(data);
     }
+    //eslint-disable-next-line
   }, [personData, workData]);
 
   return (
@@ -610,7 +595,7 @@ const PersonEditPage = () => {
                           <Field
                             as='textarea'
                             className='form-control'
-                            style={{ padding: '20px', minHeight: '270px' }}
+                            style={{ padding: '20px', minHeight: '300px' }}
                             name='aboutPerson'
                             placeholder='About person'
                           />
@@ -779,7 +764,7 @@ const PersonEditPage = () => {
                         <Field
                           as='textarea'
                           className='form-control mb-1'
-                          style={{ padding: '20px', height: '280px' }}
+                          style={{ padding: '20px', minHeight: '100px' }}
                           name='title'
                           placeholder='Title'
                         />

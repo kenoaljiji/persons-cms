@@ -58,7 +58,7 @@ const Posts = () => {
         <Alerts />
       </div>
       <h2 className='mb-5'>Posts</h2>
-      <div className='post-category bg-gray '>
+      <div className='post-category bg-gray'>
         <div className='category-select d-flex align-items-center p-1'>
           <label>Select category:</label>
           <select

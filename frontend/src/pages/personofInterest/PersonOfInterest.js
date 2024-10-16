@@ -42,6 +42,7 @@ const PersonOfInterest = () => {
         >
           {authors?.map((author, index) => {
             const fullName = slugify(author.firstName + '-' + author.lastName);
+
             return (
               <Link
                 to={`/person-of-interest/${fullName}`}
