@@ -41,7 +41,7 @@ const Posts = () => {
       listAuthors(setLoading);
     }
 
-    if (['Button1', 'Button2', 'About', 'Shop', 'Soon'].includes(category)) {
+    if (['Button1', 'Button2', 'About'].includes(category)) {
       listPosts(setLoading, category);
       console.log(posts);
     }
@@ -70,15 +70,11 @@ const Posts = () => {
             <option value='News'>News</option>
             <option value='Partners'>Partners</option>
             <option value='About'>About</option>
-            <option value='Button2'>Button2Page</option>
-            <option value='Button1'>Button1Page</option>
-            <option value='Shop'>Shop</option>
-            <option value='Soon'>Coming</option>
           </select>
         </div>
       </div>
       <div className='mt-5'>
-        <h3>{category === 'Soon' ? 'Coming' : category}</h3>
+        <h3>{category && category}</h3>
       </div>
       {category === 'News' && (
         <PostsTable
@@ -96,7 +92,7 @@ const Posts = () => {
           category={category}
         />
       )}
-      {['Button1', 'Button2', 'About', 'Shop', 'Soon'].includes(category) && (
+      {['Button1', 'Button2', 'About', 'Shop'].includes(category) && (
         <PostsTable
           posts={posts}
           loading={loading}

@@ -56,21 +56,11 @@ const SearchResult = () => {
 
   const initialCategories = queryParams.getAll('categories');
 
-  const [initialRender, setInitialRender] = useState(true);
-
+  //eslint-disable-next-line
   const [selectedCategories, setSelectedCategories] =
     useState(initialCategories);
-
   const navigate = useNavigate();
 
-  // Function to remove a category
-
-  const handleAddCategory = (category) => {
-    const newCategories = [...formik.values.categories, category];
-    formik.setFieldValue('categories', newCategories);
-  };
-
-  // Function to remove category
   // Function to remove category
   const handleRemoveCategory = (category) => {
     const filteredCategories = formik.values.categories.filter(
@@ -101,14 +91,6 @@ const SearchResult = () => {
       ? queryParams.get('categories').split(',')
       : '',
     sort: queryParams.get('sort') || 'relevance', // Default sort order
-  };
-
-  const handleSearch = async (data) => {
-    try {
-      const response = await axios.get(localhost + '/search', {
-        data,
-      });
-    } catch (err) {}
   };
 
   const handleCategoryChange = (category) => {
@@ -247,35 +229,6 @@ const SearchResult = () => {
 
     setSelectedCategories(queryParams.getAll('categories'));
   }, [location.search]); // Depend on location.search to re-run this effect when the search query changes
-
-  function createSearchDescription(params) {
-    let description = '';
-    const words = params.get('words');
-    const anyWords = params.get('anyWords');
-    const excludeWords = params.get('excludeWords');
-    const phrase = params.get('phrase');
-    /*  const includeExternalSources = params.get('includeExternalSources'); */
-
-    if (words) {
-      description += `${words} `;
-    }
-
-    if (phrase) {
-      description += `"${phrase}" `;
-    }
-    if (anyWords) {
-      description += `[${anyWords.split(',').join(', ')}] `;
-    }
-    if (excludeWords) {
-      description += `![${excludeWords.split(',').join(', ')}]`;
-    }
-
-    /*    if (includeExternalSources === 'true') {
-      description += `, including external sources`;
-    } */
-
-    return description;
-  }
 
   const categoryArray = ['Person of Interest', 'News', 'Coming'];
 

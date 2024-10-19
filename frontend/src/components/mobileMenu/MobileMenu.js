@@ -9,11 +9,12 @@ const MobileMenu = ({ isActive, setIsActive }) => {
   const { state } = useRouteContext();
 
   const { headersData } = state;
-  const { routes, buttons } = headersData;
+  const { routes } = headersData;
   const { pathname } = useLocation();
 
   useEffect(() => {
     setIsActive(false);
+    //eslint-disable-next-line
   }, [pathname]);
 
   return (
@@ -41,9 +42,6 @@ const MobileMenu = ({ isActive, setIsActive }) => {
         <ul>
           <li style={{ textAlign: 'left' }}>
             <Link to={transformPath(routes.person)}>{routes.person}</Link>
-          </li>
-          <li>
-            <Link to={transformPath(routes.soon)}>{routes.soon}</Link>
           </li>
           <li>
             <Link to={transformPath(routes.news)}>{routes.news}</Link>

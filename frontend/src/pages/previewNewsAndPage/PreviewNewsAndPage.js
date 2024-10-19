@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import moment from 'moment';
 import './previewPage.scss';
 import { ContentComponent } from '../../components/ContentComponent';
@@ -7,12 +7,12 @@ import { useNavigate } from 'react-router-dom';
 
 const PreviewNewsAndPage = () => {
   const { singlePost, togglePreviewMode } = usePreviewContext();
-  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
   useEffect(() => {
     togglePreviewMode(false);
+    //eslint-disable-next-line
   }, []);
 
   return (

@@ -34,11 +34,6 @@ const Navbar = () => {
           </CustomLink>
         </li>
         <li className={styles['navbar-item']}>
-          <CustomLink to={'/' + transformPath(routes.soon)}>
-            {routes.soon}
-          </CustomLink>
-        </li>
-        <li className={styles['navbar-item']}>
           <CustomLink to={'/' + transformPath(routes.news)}>
             {routes.news}
           </CustomLink>

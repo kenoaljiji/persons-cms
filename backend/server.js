@@ -1,16 +1,16 @@
-import express from "express";
-import dotenv from "dotenv";
-import cors from "cors";
-import routes from "./routes/routes.js";
-import pool from "./db/config.js";
-import requestIp from "request-ip";
-import path from "path";
-import { fileURLToPath } from "url";
-import { dirname } from "path";
-import winston from "winston";
-import { promisify } from "util";
-import expressWs from "express-ws";
-import fs from "fs";
+import express from 'express';
+import dotenv from 'dotenv';
+import cors from 'cors';
+import routes from './routes/routes.js';
+import pool from './db/config.js';
+import requestIp from 'request-ip';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+import winston from 'winston';
+import { promisify } from 'util';
+import expressWs from 'express-ws';
+import fs from 'fs';
 
 dotenv.config();
 
@@ -20,18 +20,18 @@ const __dirname = dirname(__filename);
 const readFile = promisify(fs.readFile);
 
 const logger = winston.createLogger({
-  level: "info",
+  level: 'info',
   format: winston.format.combine(
     winston.format.timestamp(),
     winston.format.json()
   ),
   transports: [
-    new winston.transports.File({ filename: "error.log", level: "error" }),
-    new winston.transports.File({ filename: "combined.log" }),
+    new winston.transports.File({ filename: 'error.log', level: 'error' }),
+    new winston.transports.File({ filename: 'combined.log' }),
   ],
 });
 
-if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV !== 'production') {
   logger.add(
     new winston.transports.Console({
       format: winston.format.simple(),
@@ -42,7 +42,7 @@ if (process.env.NODE_ENV !== "production") {
 const app = express();
 expressWs(app);
 
-app.enable("trust proxy");
+app.enable('trust proxy');
 
 // Connecting to the database
 const connectDB = async () => {
@@ -52,7 +52,7 @@ const connectDB = async () => {
       conn.release();
     }
   } catch (err) {
-    logger.error("Database connection error:", err);
+    logger.error('Database connection error:', err);
   }
 };
 
@@ -63,19 +63,19 @@ const importSQL = async () => {
     const conn = await pool.getConnection();
 
     if (conn) {
-      logger.info("MariaDB Connected!");
+      logger.info('MariaDB Connected!');
 
       // Check if the database is empty
-      const rows = await conn.query("SHOW TABLES");
+      const rows = await conn.query('SHOW TABLES');
       if (rows.length === 0) {
-        logger.info("Database is empty, importing data...");
+        logger.info('Database is empty, importing data...');
 
         const sqlFilePath = path.resolve(
           __dirname,
-          "data",
-          "vizitkeb_bpikd.sql"
+          'data',
+          'vizitkeb_bpikd.sql'
         );
-        const sql = await readFile(sqlFilePath, "utf-8");
+        const sql = await readFile(sqlFilePath, 'utf-8');
 
         const statements = sql.split(/;\s*$/m);
         for (const statement of statements) {
@@ -84,27 +84,27 @@ const importSQL = async () => {
           }
         }
 
-        logger.info("SQL file imported successfully!");
+        logger.info('SQL file imported successfully!');
       } else {
-        logger.info("Database is not empty, skipping import.");
+        logger.info('Database is not empty, skipping import.');
       }
 
       conn.release();
     }
   } catch (err) {
-    logger.error("Error importing SQL file:", err);
+    logger.error('Error importing SQL file:', err);
   }
 };
 
 importSQL();
-app.enable("trust proxy");
+app.enable('trust proxy');
 
 // CORS middleware setup to allow requests from specified origins
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", process.env.NODE_DOMAIN);
+  res.setHeader('Access-Control-Allow-Origin', process.env.NODE_DOMAIN);
   res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
   );
   next();
 });
@@ -112,29 +112,29 @@ app.use((req, res, next) => {
 app.use(requestIp.mw());
 
 // Express middleware for parsing requests
-app.use(express.json({ limit: "10mb" }));
-app.use(express.urlencoded({ limit: "10mb" }));
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ limit: '10mb' }));
 app.use(express.json());
 app.use(cors());
 
 app.use(requestIp.mw());
 // Serve the static files from the React app
-app.use(express.static(path.join(__dirname, "../build")));
+app.use(express.static(path.join(__dirname, '../build')));
 
 // API routes
 
 // Serve static files from the public/uploads directory
-app.use("/api", express.static("public/works"));
-app.use("/api", express.static("public"));
+app.use('/api', express.static('public/works'));
+app.use('/api', express.static('public'));
 
 // WebSocket route for backup progress
 
-app.use("/api", routes);
+app.use('/api', routes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
   logger.error(err.stack);
-  res.status(500).send("Something broke!");
+  res.status(500).send('Something broke!');
 });
 
 const PORT = process.env.PORT || 3000;

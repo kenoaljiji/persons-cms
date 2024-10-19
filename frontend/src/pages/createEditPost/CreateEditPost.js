@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { useGlobalContext } from '../../context/bpikd/GlobalState';
 import AddImageIcon from '../../icons/AddImageIcon';
@@ -39,7 +39,7 @@ const CreateEditPost = () => {
   const formRef = useRef();
 
   const [imageURL, setImageURL] = useState('');
-
+  //eslint-disable-next-line
   const [isPublished, setIsPublished] = useState(true);
   const [loading, setIsLoading] = useState(false);
   const [featuredImage, setFeaturedImage] = useState('');
@@ -105,6 +105,7 @@ const CreateEditPost = () => {
     } else {
       getPostById(postId, 'news', setIsLoading);
     }
+    //eslint-disable-next-line
   }, [postId, paramCategory]); // Include singlePost in the dependency array
 
   const categoryAndReset = (value) => {
@@ -339,6 +340,7 @@ const CreateEditPost = () => {
       formData.append('data', JSON.stringify(data));
 
       // Make a PUT request with Axios, but use formData instead of just data
+      //eslint-disable-next-line
       const response = await axios.put(
         `${localhost}/post/news/${id}`,
         formData,
@@ -364,8 +366,8 @@ const CreateEditPost = () => {
     const authorId = event.target.value;
 
     if (authorId) {
-      const authorObject = authors.find((author) => author.id == authorId);
-      const { firstName, lastName, featured, aboutPerson, id } = authorObject;
+      const authorObject = authors.find((author) => author.id === authorId);
+      const { firstName, lastName, featured, aboutPerson } = authorObject;
       setInitialValues({
         ...initialValues,
         ...(category === 'Person of Interest' && {
@@ -399,6 +401,7 @@ const CreateEditPost = () => {
   useEffect(() => {
     resetProgressUpload();
     return () => abortController.abort();
+    //eslint-disable-next-line
   }, []);
 
   return (
@@ -418,9 +421,6 @@ const CreateEditPost = () => {
               <option value='Person of Interest'>Person of Interest</option>
               <option value='News'>News</option>
               <option value='About'>About</option>
-              <option value='Button1'>Button1Page</option>
-              <option value='Button2'>Button2Page</option>
-              <option value='Soon'>Soon Page</option>
               <option value='Shop'>Shop</option>
             </select>
           </div>
@@ -455,7 +455,7 @@ const CreateEditPost = () => {
               initialValues={initialValues}
               validationSchema={getValidationSchema}
               enableReinitialize={true}
-              onSubmit={(values, { resetForm }) => {
+              onSubmit={(values) => {
                 let submissionData = { ...values };
 
                 // Remove externalSource if it's empty

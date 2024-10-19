@@ -10,7 +10,6 @@ import AuthHeader from '../../layout/AuthHeader';
 const LoginPage = () => {
   const { login, error, logout, clearErrors, isAuthenticated } =
     useAuthContext();
-
   useEffect(() => {
     if (!error) {
       logout();
@@ -33,7 +32,7 @@ const LoginPage = () => {
               username: Yup.string().required('Username is required'),
               password: Yup.string().required('Password is required'),
             })}
-            onSubmit={(values, { setSubmitting, resetForm }) => {
+            onSubmit={(values, { setSubmitting }) => {
               setTimeout(() => {
                 login(values);
                 setSubmitting(false);
@@ -70,7 +69,7 @@ const LoginPage = () => {
                         <label htmlFor='password' className='form-label pt-2'>
                           Password
                         </label>
-                        <div className='w-100'>
+                        <div className='w-100' style={{ marginLeft: '3px' }}>
                           <Field
                             type='password'
                             className='form-control'

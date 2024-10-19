@@ -7,11 +7,10 @@ import './headerItems.scss';
 import Loader from '../../components/loader/Loader';
 
 const HeaderItems = () => {
-  const { state, dispatch, changeHeaderAndRoutes, loadHeaderConfig } =
-    useRouteContext();
+  const { state, changeHeaderAndRoutes } = useRouteContext();
   const { headersData } = state;
 
-  const { routes, buttons, logoImgPath } = headersData;
+  const { routes, logoImgPath } = headersData;
 
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -46,7 +45,6 @@ const HeaderItems = () => {
   // Building initial form values based on current routes and buttons state
   const initialValues = {
     ...routes,
-    ...buttons,
   };
 
   // Creating a dynamic validation schema based on the routes and buttons
@@ -55,36 +53,25 @@ const HeaderItems = () => {
       acc[key] = Yup.string().required(`${key} field is required`);
       return acc;
     }, {}),
-    ...Object.keys(buttons).reduce((acc, key) => {
-      acc[key] = Yup.string().required(`${key} field is required`);
-      return acc;
-    }, {}),
   });
 
-  const onSubmit = (values, { setSubmitting, resetForm }) => {
-    // Here, dispatch an action to update the routes and buttons in your context
+  const onSubmit = (values, { setSubmitting }) => {
+    // Here, dispatch an action to update the routes in your context
     // Assuming you have an action type called "UPDATE_CONFIG"
 
-    // Initialize empty objects for routes and buttons
+    // Initialize empty objects for routes
     let routes = {};
-    let buttons = {};
 
-    // Separate values into routes and buttons based on the key prefix or specific keys
+    // Separate values into routes  based on the key prefix or specific keys
     Object.keys(values).forEach((key) => {
-      if (
-        ['person', 'news', 'about', 'partners', 'shop', 'soon'].includes(key)
-      ) {
+      if (['person', 'news', 'about', 'partners'].includes(key)) {
         // If the key is one of the routes, add it to the routes object
         routes[key] = values[key];
-      } else if (['button1', 'button2'].includes(key)) {
-        // If the key is one of the buttons, add it to the buttons object
-        buttons[key] = values[key];
       }
     });
 
     const data = {
       routes,
-      buttons,
       logoImgPath: logoImage,
     };
 
@@ -184,14 +171,6 @@ const HeaderItems = () => {
                     )}
                   </div>
                 </div>
-                <div className='d-flex justify-content-between border-bottom px-0 pb-1 mt-3'>
-                  <h4>Header Buttons</h4>
-                </div>
-                <div className='mx-auto pt-2'>
-                  {Object.keys(buttons).map((key) => (
-                    <FieldGroup label={key} name={key} key={key} />
-                  ))}
-                </div>
               </div>
             </Form>
           )}
@@ -207,14 +186,11 @@ const FieldGroup = ({ label, name }) => (
       <div className='container'>
         <div className='row'>
           <div className='col-md-3 text-end'>
-            {/* Ensure label displays full value */}
             <label htmlFor={name} className='form-label pt-2'>
               {label}
-              {/* Transform dashes to spaces if needed */}
             </label>
           </div>
           <div className='col-md-8'>
-            {/* Field uses the name, should handle spaces correctly */}
             <Field type='text' className='form-control' id={name} name={name} />
             <ErrorMessage
               name={name}

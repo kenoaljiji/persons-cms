@@ -775,3 +775,84 @@
 {"level":"info","message":"Server running in undefined mode on port 8000","timestamp":"2024-10-16T12:53:46.657Z"}
 {"level":"info","message":"MariaDB Connected!","timestamp":"2024-10-16T12:53:46.861Z"}
 {"level":"info","message":"Database is not empty, skipping import.","timestamp":"2024-10-16T12:53:46.891Z"}
+{"level":"info","message":"Server running in undefined mode on port 8000","timestamp":"2024-10-16T18:36:29.222Z"}
+{"level":"info","message":"MariaDB Connected!","timestamp":"2024-10-16T18:36:30.108Z"}
+{"level":"info","message":"Database is not empty, skipping import.","timestamp":"2024-10-16T18:36:30.169Z"}
+{"level":"info","message":"Server running in undefined mode on port 8000","timestamp":"2024-10-16T18:38:32.389Z"}
+{"level":"info","message":"MariaDB Connected!","timestamp":"2024-10-16T18:38:32.581Z"}
+{"level":"info","message":"Database is not empty, skipping import.","timestamp":"2024-10-16T18:38:32.612Z"}
+{"level":"info","message":"Server running in undefined mode on port 8000","timestamp":"2024-10-16T18:49:02.800Z"}
+{"level":"info","message":"MariaDB Connected!","timestamp":"2024-10-16T18:49:03.281Z"}
+{"level":"info","message":"Database is not empty, skipping import.","timestamp":"2024-10-16T18:49:03.311Z"}
+{"level":"info","message":"Server running in undefined mode on port 8000","timestamp":"2024-10-17T07:34:48.348Z"}
+{"level":"info","message":"MariaDB Connected!","timestamp":"2024-10-17T07:34:48.933Z"}
+{"level":"info","message":"Database is not empty, skipping import.","timestamp":"2024-10-17T07:34:48.962Z"}
+{"level":"info","message":"Server running in undefined mode on port 8000","timestamp":"2024-10-18T07:26:39.315Z"}
+{"level":"info","message":"MariaDB Connected!","timestamp":"2024-10-18T07:26:40.048Z"}
+{"level":"info","message":"Database is not empty, skipping import.","timestamp":"2024-10-18T07:26:40.078Z"}
+{"level":"info","message":"Server running in undefined mode on port 8000","timestamp":"2024-10-18T08:22:58.330Z"}
+{"level":"info","message":"MariaDB Connected!","timestamp":"2024-10-18T08:22:58.841Z"}
+{"level":"info","message":"Database is not empty, skipping import.","timestamp":"2024-10-18T08:22:58.868Z"}
+{"level":"info","message":"Server running in undefined mode on port 8000","timestamp":"2024-10-18T08:28:49.636Z"}
+{"level":"info","message":"MariaDB Connected!","timestamp":"2024-10-18T08:28:50.306Z"}
+{"level":"info","message":"Database is not empty, skipping import.","timestamp":"2024-10-18T08:28:50.334Z"}
+{"level":"info","message":"Server running in undefined mode on port 8000","timestamp":"2024-10-18T19:11:20.884Z"}
+{"level":"info","message":"MariaDB Connected!","timestamp":"2024-10-18T19:11:21.391Z"}
+{"level":"info","message":"Database is not empty, skipping import.","timestamp":"2024-10-18T19:11:21.419Z"}
+{"level":"info","message":"Server running in undefined mode on port 8000","timestamp":"2024-10-19T14:12:16.279Z"}
+{"level":"info","message":"MariaDB Connected!","timestamp":"2024-10-19T14:12:17.045Z"}
+{"level":"info","message":"Database is not empty, skipping import.","timestamp":"2024-10-19T14:12:17.072Z"}
+{"level":"info","message":"Server running in undefined mode on port 8000","timestamp":"2024-10-19T15:08:25.795Z"}
+{"level":"info","message":"MariaDB Connected!","timestamp":"2024-10-19T15:08:26.030Z"}
+{"level":"info","message":"Database is not empty, skipping import.","timestamp":"2024-10-19T15:08:26.060Z"}
+{"level":"info","message":"Server running in undefined mode on port 8000","timestamp":"2024-10-19T15:08:28.993Z"}
+{"level":"info","message":"MariaDB Connected!","timestamp":"2024-10-19T15:08:29.203Z"}
+{"level":"info","message":"Database is not empty, skipping import.","timestamp":"2024-10-19T15:08:29.233Z"}
+{"level":"info","message":"Server running in undefined mode on port 8000","timestamp":"2024-10-19T15:08:36.296Z"}
+{"level":"info","message":"MariaDB Connected!","timestamp":"2024-10-19T15:08:36.502Z"}
+{"level":"info","message":"Database is not empty, skipping import.","timestamp":"2024-10-19T15:08:36.530Z"}
+{"level":"info","message":"Server running in undefined mode on port 8000","timestamp":"2024-10-19T15:08:50.484Z"}
+{"level":"info","message":"MariaDB Connected!","timestamp":"2024-10-19T15:08:50.800Z"}
+{"level":"info","message":"Database is not empty, skipping import.","timestamp":"2024-10-19T15:08:50.872Z"}
+{"level":"info","message":"Server running in undefined mode on port 8000","timestamp":"2024-10-19T15:13:42.007Z"}
+{"level":"info","message":"MariaDB Connected!","timestamp":"2024-10-19T15:13:42.860Z"}
+{"level":"info","message":"Database is not empty, skipping import.","timestamp":"2024-10-19T15:13:42.907Z"}
+{"level":"info","message":"Server running in undefined mode on port 8000","timestamp":"2024-10-19T15:22:10.542Z"}
+{"level":"info","message":"MariaDB Connected!","timestamp":"2024-10-19T15:22:10.921Z"}
+{"level":"info","message":"Database is not empty, skipping import.","timestamp":"2024-10-19T15:22:10.952Z"}
+{"level":"info","message":"Server running in undefined mode on port 8000","timestamp":"2024-10-19T15:22:14.030Z"}
+{"level":"info","message":"MariaDB Connected!","timestamp":"2024-10-19T15:22:14.238Z"}
+{"level":"info","message":"Database is not empty, skipping import.","timestamp":"2024-10-19T15:22:14.268Z"}
+{"level":"info","message":"Server running in undefined mode on port 8000","timestamp":"2024-10-19T15:22:49.553Z"}
+{"level":"info","message":"MariaDB Connected!","timestamp":"2024-10-19T15:22:49.825Z"}
+{"level":"info","message":"Database is not empty, skipping import.","timestamp":"2024-10-19T15:22:49.854Z"}
+{"level":"info","message":"Server running in undefined mode on port 8000","timestamp":"2024-10-19T15:25:40.056Z"}
+{"level":"info","message":"MariaDB Connected!","timestamp":"2024-10-19T15:25:40.250Z"}
+{"level":"info","message":"Database is not empty, skipping import.","timestamp":"2024-10-19T15:25:40.283Z"}
+{"level":"info","message":"Server running in undefined mode on port 8000","timestamp":"2024-10-19T15:26:27.350Z"}
+{"level":"info","message":"MariaDB Connected!","timestamp":"2024-10-19T15:26:27.543Z"}
+{"level":"info","message":"Database is not empty, skipping import.","timestamp":"2024-10-19T15:26:27.571Z"}
+{"level":"info","message":"Server running in undefined mode on port 8000","timestamp":"2024-10-19T15:27:22.969Z"}
+{"level":"info","message":"MariaDB Connected!","timestamp":"2024-10-19T15:27:23.203Z"}
+{"level":"info","message":"Database is not empty, skipping import.","timestamp":"2024-10-19T15:27:23.232Z"}
+{"level":"info","message":"Server running in undefined mode on port 8000","timestamp":"2024-10-19T15:31:37.631Z"}
+{"level":"info","message":"MariaDB Connected!","timestamp":"2024-10-19T15:31:37.882Z"}
+{"level":"info","message":"Database is not empty, skipping import.","timestamp":"2024-10-19T15:31:37.931Z"}
+{"level":"info","message":"Server running in undefined mode on port 8000","timestamp":"2024-10-19T15:31:42.616Z"}
+{"level":"info","message":"MariaDB Connected!","timestamp":"2024-10-19T15:31:43.071Z"}
+{"level":"info","message":"Database is not empty, skipping import.","timestamp":"2024-10-19T15:31:43.099Z"}
+{"level":"info","message":"Server running in undefined mode on port 8000","timestamp":"2024-10-19T15:31:51.476Z"}
+{"level":"info","message":"MariaDB Connected!","timestamp":"2024-10-19T15:31:51.623Z"}
+{"level":"info","message":"Database is not empty, skipping import.","timestamp":"2024-10-19T15:31:51.651Z"}
+{"level":"info","message":"Server running in undefined mode on port 8000","timestamp":"2024-10-19T15:33:29.392Z"}
+{"level":"info","message":"MariaDB Connected!","timestamp":"2024-10-19T15:33:29.787Z"}
+{"level":"info","message":"Database is not empty, skipping import.","timestamp":"2024-10-19T15:33:29.816Z"}
+{"level":"info","message":"Server running in undefined mode on port 8000","timestamp":"2024-10-19T16:46:01.149Z"}
+{"level":"info","message":"MariaDB Connected!","timestamp":"2024-10-19T16:46:01.707Z"}
+{"level":"info","message":"Database is not empty, skipping import.","timestamp":"2024-10-19T16:46:01.774Z"}
+{"level":"info","message":"Server running in undefined mode on port 8000","timestamp":"2024-10-19T16:58:03.637Z"}
+{"level":"info","message":"MariaDB Connected!","timestamp":"2024-10-19T16:58:04.039Z"}
+{"level":"info","message":"Database is not empty, skipping import.","timestamp":"2024-10-19T16:58:04.072Z"}
+{"level":"info","message":"Server running in undefined mode on port 8000","timestamp":"2024-10-19T16:58:31.115Z"}
+{"level":"info","message":"MariaDB Connected!","timestamp":"2024-10-19T16:58:31.587Z"}
+{"level":"info","message":"Database is not empty, skipping import.","timestamp":"2024-10-19T16:58:31.619Z"}

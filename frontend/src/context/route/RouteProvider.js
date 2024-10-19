@@ -1,10 +1,4 @@
-import React, {
-  createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useReducer,
-} from 'react';
+import React, { createContext, useContext, useEffect, useReducer } from 'react';
 import { routeReducer } from './routeReducer';
 import { useAlertContext } from '../alert/AlertState';
 import axios from 'axios';
@@ -24,44 +18,15 @@ export const RouteProvider = ({ children }) => {
         news: 'News',
         about: 'About',
         partners: 'Partners',
-        shop: 'Shop',
-        soon: 'Coming',
-      },
-      buttons: {
-        button1: 'Donate',
-        button2: 'Submit',
       },
       logoImgPath: '',
     },
-    textTrack: {
-      isPlaying: false,
-      active: false,
-      text: 'SOME RANDOM TEXT',
-    },
+
     loading: false,
   };
   const { user } = useAuthContext();
   const [state, dispatch] = useReducer(routeReducer, initialState);
-  const { setAlert, alerts } = useAlertContext();
-
-  const getTextSettings = useCallback(async () => {
-    try {
-      const res = await axios.get(`${localhost}/settings`);
-
-      dispatch({
-        type: 'GET_TEXT_SETTINGS_DATA',
-        payload: res.data,
-      });
-    } catch (error) {
-      setAlert(error.message, 'danger');
-    }
-    //eslint-disable-next-line
-  }, [dispatch]);
-
-  useEffect(() => {
-    getTextSettings();
-    //eslint-disable-next-line
-  }, []);
+  const { setAlert } = useAlertContext();
 
   useEffect(() => {
     loadHeaderConfig();
@@ -71,11 +36,8 @@ export const RouteProvider = ({ children }) => {
   const changeHeaderAndRoutes = async (values, setLoading) => {
     const formData = new FormData();
     formData.append('routes', JSON.stringify(values.routes));
-    formData.append('buttons', JSON.stringify(values.buttons));
 
     if (values.logoImgPath instanceof File) {
-      console.log(values.logoImgPath);
-
       formData.append('logoImg', values.logoImgPath, values.logoImgPath.name);
     }
 
@@ -90,8 +52,8 @@ export const RouteProvider = ({ children }) => {
           },
         }
       );
-      console.log(res);
 
+      console.log(res.data);
       loadHeaderConfig();
       setAlert('Header updated successfully', 'success');
     } catch (error) {
@@ -129,7 +91,6 @@ export const RouteProvider = ({ children }) => {
         dispatch,
         changeHeaderAndRoutes,
         loadHeaderConfig,
-        getTextSettings,
       }}
     >
       {children}
