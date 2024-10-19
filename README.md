@@ -7,7 +7,7 @@ This is a custom CMS (Content Management System) built using React for the front
 - **Admin Login**: Admins can log in via the `/admin` route using the default credentials:
   - **Username**: `admin`
   - **Password**: `admin1234`
-- **Admin Dashboard**: After logging in, the admin can access the dashboard at `admin/dashboard`. From here, users can: - ![Dashboard]('/images/dashboard.png)  
+- **Admin Dashboard**: After logging in, the admin can access the dashboard at `admin/dashboard`. From here, users can: - ![Dashboard]('images/dashboard.png)  
    The admin can add new users by filling in the required details.
 
   - **Add new users**:
