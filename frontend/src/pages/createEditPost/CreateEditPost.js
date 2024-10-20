@@ -366,7 +366,7 @@ const CreateEditPost = () => {
     const authorId = event.target.value;
 
     if (authorId) {
-      const authorObject = authors.find((author) => author.id === authorId);
+      const authorObject = authors.find((author) => author.id == authorId);
       const { firstName, lastName, featured, aboutPerson } = authorObject;
       setInitialValues({
         ...initialValues,
@@ -594,6 +594,7 @@ const CreateEditPost = () => {
                                     name='person.firstName'
                                     required
                                   />
+                                  <span>*</span>
                                 </div>
                                 <div className='d-flex ms-3 align-items-center'>
                                   <label className='flex-shrink-0 me-2'>
@@ -604,28 +605,36 @@ const CreateEditPost = () => {
                                     name='person.lastName'
                                     required
                                   />
+                                  <span>*</span>
                                 </div>
                               </div>
-
-                              <Field
-                                as='textarea'
-                                className='form-control'
-                                style={{ padding: '20px', minHeight: '270px' }}
-                                name='person.aboutPerson'
-                                placeholder='About person'
-                                required
-                              />
+                              <div className='d-flex'>
+                                <Field
+                                  as='textarea'
+                                  className='form-control'
+                                  style={{
+                                    padding: '20px',
+                                    minHeight: '270px',
+                                  }}
+                                  name='person.aboutPerson'
+                                  placeholder='About person'
+                                  required
+                                />
+                                <span>*</span>
+                              </div>
                             </>
                           )}
-
-                        <Field
-                          as='textarea'
-                          className='form-control mb-1'
-                          style={{ padding: '20px', minHeight: '100px' }}
-                          name='title'
-                          placeholder='Title'
-                          required
-                        />
+                        <div className='d-flex'>
+                          <Field
+                            as='textarea'
+                            className='form-control mb-1'
+                            style={{ padding: '20px', minHeight: '100px' }}
+                            name='title'
+                            placeholder='Title'
+                            required
+                          />
+                          <span>*</span>
+                        </div>
                       </div>
                       {category === 'Person of Interest' && (
                         <div className='file-upload-grid'>
@@ -693,9 +702,9 @@ const CreateEditPost = () => {
                         </div>
                       )}
                       {category !== 'Person of Interest' && (
-                        <div>
+                        <div className='d-flex align-items-start'>
                           <ReactQuill
-                            className='react-quill'
+                            className='react-quill w-100'
                             theme='snow'
                             value={values.content}
                             onChange={(content) =>
@@ -704,6 +713,7 @@ const CreateEditPost = () => {
                             modules={modules}
                             required
                           />
+                          <span className='mt-3'>*</span>
                         </div>
                       )}
                     </div>
@@ -861,16 +871,19 @@ const CreateEditPost = () => {
                     </div>
                     <div>
                       {category === 'Person of Interest' && (
-                        <ReactQuill
-                          className='react-quill'
-                          theme='snow'
-                          value={values.content}
-                          onChange={(content) =>
-                            setFieldValue('content', content)
-                          }
-                          modules={modules}
-                          required={true}
-                        />
+                        <div className='d-flex align-items-start'>
+                          <ReactQuill
+                            className='react-quill w-100'
+                            theme='snow'
+                            value={values.content}
+                            onChange={(content) =>
+                              setFieldValue('content', content)
+                            }
+                            modules={modules}
+                            required={true}
+                          />
+                          <span className='mt-3'>*</span>
+                        </div>
                       )}
                     </div>
                   </div>

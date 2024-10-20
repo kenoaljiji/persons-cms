@@ -18,7 +18,7 @@ export const searchItems = async (req, res) => {
   } = req.body.query;
 
   try {
-    const tables = ['news', 'works', 'persons', 'soon'];
+    const tables = ['news', 'works', 'persons'];
     let sqlParts = [];
     let countParts = [];
     const params = [];
@@ -152,8 +152,6 @@ export const searchItems = async (req, res) => {
       if (externalSources) {
         queryPart += ` AND ${table}.externalSource IS NOT NULL AND ${table}.externalSource <> ""`;
         countPart += ` AND ${table}.externalSource IS NOT NULL AND ${table}.externalSource <> ""`;
-        /*   params.push(externalSources);
-        countParams.push(externalSources); */
       }
       // Date range filters
       if (createdStartDate) {
@@ -250,40 +248,3 @@ const determineGlobalOrderBy = (sort) => {
       return 'created_at DESC'; // Default fallback when no specific sort is provided
   }
 };
-
-// Define a function to determine the ORDER BY clause
-/* const determineGlobalOrderBy = (sort, table) => {
-  console.log(`Sorting for table: ${table} with sort parameter: ${sort}`);
-
-  // Define how each sort option translates to SQL for each table
-  let orderByClause = '';
-  switch (sort) {
-    case 'document_desc':
-      if (table === 'works') {
-        orderByClause = 'works.created_at DESC'; // Specific to 'works'
-      } else {
-        orderByClause = 'created_at DESC'; // General case for other tables
-      }
-      break;
-    case 'document_asc':
-      if (table === 'works') {
-        orderByClause = 'works.created_at ASC'; // Specific to 'works'
-      } else {
-        orderByClause = 'created_at ASC'; // General case for other tables
-      }
-      break;
-    case 'release_desc':
-      // Apply only if the table has a 'scheduledPublishTime'
-      if (['news', 'soon'].includes(table)) {
-        orderByClause = `${table}.scheduledPublishTime DESC`;
-      }
-      break;
-    case 'release_asc':
-      if (['news', 'soon'].includes(table)) {
-        orderByClause = `${table}.scheduledPublishTime ASC`;
-      }
-      break;
-  }
-
-  return orderByClause ? `ORDER BY ${orderByClause}` : ''; // Only return a clause if one is set
-}; */
