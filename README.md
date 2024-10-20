@@ -4,15 +4,18 @@ This is a custom CMS (Content Management System) built using React for the front
 
 ## Front Page
 
-- **Homepage**:  
+- **Homepage**:
+
   ![Homepage](images/frontpage.png)  
   The main landing page showcases various features and content of the CMS.
 
-- **Person Details Page**:  
+- **Person Details Page**:
+
   ![Person Details Page](images/persons-details-page.png)  
   This page displays detailed information about a selected person, along with any media files uploaded through the "Persons of Interest" posts in the dashboard.
 
-- **Video Player Component**:  
+- **Video Player Component**:
+
   ![Person Details Page](images/video-player.png)  
   A dedicated video player component is integrated to enhance the viewing experience.
 
@@ -21,6 +24,8 @@ This is a custom CMS (Content Management System) built using React for the front
 - **Admin Login**: Admins can log in through the `/admin` route using the default credentials:
   - **Username**: `admin`
   - **Password**: `admin1234`
+
+**Note**: Same password is for the live demo https://www.person-cms.keni.ba/admin
 
 ### Admin Dashboard
 
