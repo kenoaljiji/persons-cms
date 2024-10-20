@@ -108,28 +108,28 @@ BASE_ROUTE=api
 
 ### Backend Setup
 
-**Navigate to the backend folder:**
+- **Navigate to the backend folder:**
 
 - cd backend
 
-**Install dependencies:**
+- **Install dependencies:**
 
 - npm install
 
-**Start the backend server:**
+- **Start the backend server:**
 
 - npm run start
 
 ### Frontend setup
 
-**Navigate to the frontend folder:**
+- **Navigate to the frontend folder:**
 
 - cd frontend
 
-**Install dependencies:**
+- **Install dependencies:**
 
 - npm install
 
-**Start the backend server:**
+- **Start the backend server:**
 
 - npm run start
