@@ -24,8 +24,7 @@ This is a custom CMS (Content Management System) built using React for the front
 - **Admin Login**: Admins can log in through the `/admin` route using the default credentials:
   - **Username**: `admin`
   - **Password**: `admin1234`
-
-**Note**: Same password is for the live demo https://persons-cms.keni.ba/admin
+  - **Note**: Same password and username is for the live demo https://persons-cms.keni.ba/admin
 
 ### Admin Dashboard
 
