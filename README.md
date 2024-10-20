@@ -2,6 +2,8 @@
 
 This is a custom CMS (Content Management System) built using React for the frontend, Node.js with Express for the backend, and MariaDB as the database. The CMS allows users to dynamically manage content, specifically focused on handling "Persons" in the system. It provides an admin dashboard for performing tasks like adding users, managing posts, sorting persons, and creating database backups.
 
+![Dashboard](images/frontpage.png)
+
 ## Features
 
 - **Admin Login**: Admins can log in via the `/admin` route using the default credentials:
