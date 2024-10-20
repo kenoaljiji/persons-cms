@@ -30,7 +30,7 @@ Once logged in, the admin can access the dashboard at `/admin/dashboard`. From h
 - Create and manage posts
 - Update header navigation and logo
 - Modify footer items
-- Sort persons on the front page
+- Sort persons on the homepage
 - Track visitor IPs
 - View system information
 - Create backups for the database and backend
@@ -49,11 +49,11 @@ Admins can add, edit, and delete posts directly from the dashboard.
 
 ![Manage Posts](/images/posts.png)
 
-#### Add Persons Post on Front Page
+#### Add Persons Post on Homepage
 
-Admins can add persons to both the front page and the "Persons of Interest" page. On the "Persons of Interest" page, they can assign multiple titles to a selected person. If no existing person is selected, a new person can be added with their first title. All persons on the front page are displayed in a carousel in row 3.
+Admins can add persons to both the Homepage and the "Persons of Interest" page. On the "Persons of Interest" page, they can assign multiple titles to a selected person. If no existing person is selected, a new person can be added with their first title. All persons on the homepage are displayed in a carousel in row 3.
 
-![Add Persons on front page](/images/persons-post.png)
+![Add Persons on homepage](/images/persons-post.png)
 
 #### Add Media Files
 
@@ -166,3 +166,5 @@ BASE_ROUTE=api
    ```bash
    npm run start
    ```
+
+The application will run on http://localhost:3000 for the frontend and http://localhost:8000 for the backend (or whichever ports you have configured). This app is not finished yet, as I need to improve features. This CMS is being used for one of my clients.
