@@ -4,75 +4,94 @@ This is a custom CMS (Content Management System) built using React for the front
 
 ## Front Page
 
-![Dashboard](images/frontpage.png)
+- **Homepage**:  
+  ![Homepage](images/frontpage.png)  
+  The main landing page showcases various features and content of the CMS.
+
+- **Person Details Page**:  
+  ![Person Details Page](images/persons-details-page.png)  
+  This page displays detailed information about a selected person, along with any media files uploaded through the "Persons of Interest" posts in the dashboard.
+
+- **Video Player Component**:  
+  ![Person Details Page](images/video-player.png)  
+  A dedicated video player component is integrated to enhance the viewing experience.
 
 ## Features
 
-- **Admin Login**: Admins can log in via the `/admin` route using the default credentials:
+- **Admin Login**: Admins can log in through the `/admin` route using the default credentials:
   - **Username**: `admin`
   - **Password**: `admin1234`
 
 ### Admin Dashboard
 
-After logging in, the admin can access the dashboard at `/admin/dashboard`. From there, the logged-in user can add new users, create new posts, update the header navigation and logo, modify footer items, sort persons on the front page, track visitor IPs, view system information, and create backups for the database and backend.
+Once logged in, the admin can access the dashboard at `/admin/dashboard`. From here, they can:
+
+- Add new users
+- Create and manage posts
+- Update header navigation and logo
+- Modify footer items
+- Sort persons on the front page
+- Track visitor IPs
+- View system information
+- Create backups for the database and backend
 
 ![Dashboard](images/dashboard.png)
 
 ### Add Users
 
-Manage users, including adding, editing, and deleting users.
+Easily manage users, including adding, editing, and deleting them.
 
 ![Users](/images/users.png)
 
 ### Create and Manage Posts
 
-Manage posts, including adding, editing, and deleting posts from the dashboard.
+Admins can add, edit, and delete posts directly from the dashboard.
 
 ![Manage Posts](/images/posts.png)
 
 #### Add Persons Post on Front Page
 
-Add persons to the front page as well as to the "Persons of Interest" page. In the "Persons of Interest" section, you can add multiple titles based on the selected person. If you don't select an existing person, you can add a new person with their first title. All persons on the front page are displayed in a carousel in row 3.
+Admins can add persons to both the front page and the "Persons of Interest" page. On the "Persons of Interest" page, they can assign multiple titles to a selected person. If no existing person is selected, a new person can be added with their first title. All persons on the front page are displayed in a carousel in row 3.
 
 ![Add Persons on front page](/images/persons-post.png)
 
 #### Add Media Files
 
-Add media files to display on the persons' details page based on the selected title. You can add multiple media files for one title.
+Upload media files to display on the person’s details page based on the selected title. Multiple media files can be added for a single title.
 
 ![Add media files](/images/media-files.png)
 
-**Note**: Other categories in posts don't have media files; you can only add them as published news.
+**Note**: Media files are only available for the "Persons of Interest" category. Other categories allow adding published news without media.
 
-### Change Header and Footer
+### Header and Footer Customization
 
 #### Header
 
-Change navigation items and the logo.
+Admins can customize the navigation items and update the logo.
 
 ![Headers](/images/headers.png)
 
 #### Footer
 
-Modify footer items.
+Modify footer items as needed.
 
 ![Footer](/images/footer.png)
 
 ### Sort Items
 
-In this section, you can sort items by order and select persons. It allows you to change the positions of the first and second rows on the front page. Additionally, you can drag and rearrange the positions of the individuals.
+Admins can sort persons and change the positions of rows on the front page. Additionally, they can drag and rearrange the positions of individual persons.
 
 ![Sort Items](/images/sort.png)
 
 ### Log Traffic
 
-Track visitor IPs and view system information.
+Track visitor IPs and system information.
 
 ![Log Traffic](/images/visitor-log.png)
 
-### Create Backups of the Database
+### Create Backups
 
-Create backups of both the database and backend system from the dashboard.
+Admins can create backups of both the database and the backend system directly from the dashboard.
 
 ![Create Backup](/images/backup.png)
 
