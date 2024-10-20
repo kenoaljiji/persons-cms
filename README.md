@@ -25,21 +25,21 @@ Manage users, including adding , editing and deleting users
 
 ### Create and manage posts
 
-![Manage Posts](/images/posts.png)  
- Manage posts, including adding, editing, and deleting posts from the dashboard.
+- ![Manage Posts](/images/posts.png)  
+  Manage posts, including adding, editing, and deleting posts from the dashboard.
 
-**Add persons post on frontpage**:
+- **Add persons post on frontpage**:
 
-![Add Persons on front page](/images/persons-post.png)
-Add Persons Post on frontpage and also in Persons Of Interest page . In Persons of Interest you can add a multiple titles based on selected person . But if you dont select existing peron then you can add new person with first title. All persons in frontpage exist in carousel in row no 3 in frontpage.
+  ![Add Persons on front page](/images/persons-post.png)
+  Add Persons Post on frontpage and also in Persons Of Interest page . In Persons of Interest you can add a multiple titles based on selected person . But if you dont select existing peron then you can add new person with first title. All persons in frontpage exist in carousel in row no 3 in frontpage.
 
-![Add media files](/images/media-files.png)
-Add media files to display a media in persons details page based on selected title. You can add multiple media files in one title
+  ![Add media files](/images/media-files.png)
+  Add media files to display a media in persons details page based on selected title. You can add multiple media files in one title
 
-**Sort persons dynamically**:
+- **Sort persons dynamically**:
 
-![Sort Persons](https://your-image-url.com/sort-persons.png)  
- Easily sort and filter the list of persons dynamically.
+  ![Sort Persons](https://your-image-url.com/sort-persons.png)  
+   Easily sort and filter the list of persons dynamically.
 
 - **Create backups of the database**:
 
