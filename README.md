@@ -1,8 +1,8 @@
 # Persons CMS Website
 
-This is a custom CMS (Content Management System) built using React for the frontend, Node.js with Express for the backend, and MariaDB as the database. The CMS allows users to dynamically manage content, specifically focused on handling "Persons" in the system. It provides an admin dashboard for performing tasks like adding users, managing posts, sorting persons, and creating database backups.
+This is a custom CMS (Content Management System) built using React for the frontend, Node.js with Express for the backend, and MariaDB as the database. The CMS allows users to dynamically manage content, specifically focused on handling "Persons" in the system. It provides an admin dashboard for performing tasks like adding users, managing posts, sorting persons, tracking system information, and creating database backups.
 
-## Frontpage:
+## Front Page
 
 ![Dashboard](images/frontpage.png)
 
@@ -12,63 +12,124 @@ This is a custom CMS (Content Management System) built using React for the front
   - **Username**: `admin`
   - **Password**: `admin1234`
 
-### Admin dashboard
+### Admin Dashboard
 
-After logging in, the admin can access the dashboard at `admin/dashboard`. From here logged user can add new users, make new posts, change header navigation and logo,change footer item, sort person in front page, track visitors ip, system information and make can backup for db and backend part.
+After logging in, the admin can access the dashboard at `/admin/dashboard`. From there, the logged-in user can add new users, create new posts, update the header navigation and logo, modify footer items, sort persons on the front page, track visitor IPs, view system information, and create backups for the database and backend.
 
 ![Dashboard](images/dashboard.png)
 
 ### Add Users
 
+Manage users, including adding, editing, and deleting users.
+
 ![Users](/images/users.png)
-Manage users, including adding , editing and deleting users
 
-### Create and manage posts
+### Create and Manage Posts
 
-- ![Manage Posts](/images/posts.png)  
-  Manage posts, including adding, editing, and deleting posts from the dashboard.
+Manage posts, including adding, editing, and deleting posts from the dashboard.
 
-- **Add persons post on frontpage**:
+![Manage Posts](/images/posts.png)
 
-  ![Add Persons on front page](/images/persons-post.png)
-  Add Persons Post on frontpage and also in Persons Of Interest page . In Persons of Interest you can add a multiple titles based on selected person . But if you dont select existing peron then you can add new person with first title. All persons in frontpage exist in carousel in row no 3 in frontpage.
+#### Add Persons Post on Front Page
 
-  ![Add media files](/images/media-files.png)
-  Add media files to display a media in persons details page based on selected title. You can add multiple media files in one title
+Add persons to the front page as well as to the "Persons of Interest" page. In the "Persons of Interest" section, you can add multiple titles based on the selected person. If you don't select an existing person, you can add a new person with their first title. All persons on the front page are displayed in a carousel in row 3.
 
-- **Sort persons dynamically**:
+![Add Persons on front page](/images/persons-post.png)
 
-  ![Sort Persons](https://your-image-url.com/sort-persons.png)  
-   Easily sort and filter the list of persons dynamically.
+#### Add Media Files
 
-- **Create backups of the database**:
+Add media files to display on the persons' details page based on the selected title. You can add multiple media files for one title.
 
-  - ![Create Backup](https://your-image-url.com/create-backup.png)  
-    Quickly create backups of the database with a single click.
+![Add media files](/images/media-files.png)
 
-- **Change header and footer**:
+**Note**: Other categories in posts don't have media files; you can only add them as published news.
 
-- **Backend**: The backend is built using Express, Node.js, and MariaDB, providing a robust API to interact with the database.
-- **Frontend**: The frontend is built using React, providing a modern and responsive interface for interacting with the CMS.
+### Change Header and Footer
+
+#### Header
+
+Change navigation items and the logo.
+
+![Headers](/images/headers.png)
+
+#### Footer
+
+Modify footer items.
+
+![Footer](/images/footer.png)
+
+### Sort Items
+
+In this section, you can sort items by order and select persons. It allows you to change the positions of the first and second rows on the front page. Additionally, you can drag and rearrange the positions of the individuals.
+
+![Sort Items](/images/sort.png)
+
+### Log Traffic
+
+Track visitor IPs and view system information.
+
+![Log Traffic](/images/visitor-log.png)
+
+### Create Backups of the Database
+
+Create backups of both the database and backend system from the dashboard.
+
+![Create Backup](/images/backup.png)
 
 ## Tech Stack
 
 - **Frontend**: React
-- **Backend**: Node.js, Express
+- **Backend**: Node.js with Express
 - **Database**: MariaDB (SQL)
 
-## How to Run Locally
-
-### Prerequisites
+## Prerequisites
 
 Make sure you have the following installed:
 
 - Node.js
 - MariaDB
 
-### Clone the Repository
+## Add `.env` File to the Backend Folder
+
+Create a `.env` file in the backend folder and add the following configuration:
 
 ```bash
-git clone https://github.com/yourusername/persons-cms.git
-cd persons-cms
+NODE_DB_HOST=keni.ba
+NODE_DOMAIN=keni.ba
+NODE_DB_USER=keniba_bpikd
+NODE_DB_PORT=3306
+NODE_DB_PASS=personscms123personscms123
+NODE_DB_NAME=keniba_bpikd
+JWT_SECRET=bpikd123bpikd123
+PORT=8000
+PROTOCOL=http
+BASE_ROUTE=api
 ```
+
+### Backend Setup
+
+**Navigate to the backend folder:**
+
+- cd backend
+
+**Install dependencies:**
+
+- npm install
+
+**Start the backend server:**
+
+- npm run start
+
+### Frontend setup
+
+**Navigate to the frontend folder:**
+
+- cd frontend
+
+**Install dependencies:**
+
+- npm install
+
+**Start the backend server:**
+
+- npm run start
