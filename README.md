@@ -25,7 +25,7 @@ This is a custom CMS (Content Management System) built using React for the front
   - **Username**: `admin`
   - **Password**: `admin1234`
 
-**Note**: Same password is for the live demo https://www.person-cms.keni.ba/admin
+**Note**: Same password is for the live demo https://persons-cms.keni.ba/admin
 
 ### Admin Dashboard
 
