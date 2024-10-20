@@ -167,4 +167,4 @@ BASE_ROUTE=api
    npm run start
    ```
 
-The application will run on http://localhost:3000 for the frontend and http://localhost:8000 for the backend (or whichever ports you have configured). I need to improve features. I hope that you like my work
+The application will run on http://localhost:3000 for the frontend and http://localhost:8000 for the backend (or whichever ports you have configured).I need to improve features. This dashboard CMS is being used for one of my clients.
