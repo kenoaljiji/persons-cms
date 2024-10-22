@@ -170,5 +170,17 @@ BASE_ROUTE = api
    ```bash
    npm run start
    ```
+4. **Modify frontend/config.js if you are using different port then 8000**
+   let enviroment = 'development';
 
-The application will run on http://localhost:3000 for the frontend and http://localhost:8000 for the backend (or whichever ports you have configured).I need to improve features. This dashboard CMS is being used for one of my clients.
+   export let localhost;
+
+   if (enviroment === 'development') {
+   localhost = 'http://localhost:8000/api';
+   } else if (enviroment === 'production') {
+   localhost = 'https://persons-cms.keni.ba/api';
+   } else {
+   localhost = '/api';
+   }
+
+The application will run on http://localhost:3000 for the frontend and http://localhost:8000/api for the backend (or whichever ports you have configured).I need to improve features. This dashboard CMS is being used for one of my clients.
