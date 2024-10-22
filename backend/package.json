@@ -1,0 +1,50 @@
+{
+  "name": "bpikd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js",
+    "dev": "nodemon dev/server.js",
+    "build": "babel ./ --out-dir dist --ignore node_modules,*.json,*.md"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "agenda": "^5.0.0",
+    "archiver": "^7.0.1",
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "connect-timeout": "^1.9.0",
+    "cors": "^2.8.5",
+    "D": "^1.0.0",
+    "debug": "^4.3.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-useragent": "^1.0.15",
+    "express-ws": "^5.0.2",
+    "geoip-lite": "^1.4.10",
+    "joi": "^17.12.2",
+    "jsonwebtoken": "^9.0.2",
+    "mariadb": "^3.3.0",
+    "moment": "^2.30.1",
+    "mongoose": "^8.2.2",
+    "multer": "^1.4.5-lts.1",
+    "mysql": "^2.18.1",
+    "node-cron": "^3.0.3",
+    "node-schedule": "^2.1.1",
+    "request-ip": "^3.3.0",
+    "ua-parser-js": "^1.0.37",
+    "winston": "^3.13.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.24.7",
+    "@babel/core": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.1.0"
+  }
+}
