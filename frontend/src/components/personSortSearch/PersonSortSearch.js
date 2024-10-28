@@ -21,18 +21,12 @@ const PersonSortSearch = () => {
 
   const [loading, setLoading] = useState();
 
-  const initialPlaceholders = Array.from({ length: 4 }, (_, index) => ({
-    id: `placeholder-${index}`,
-    placeholder: true,
-    text: `Select person ${index + 1}`,
-    featured: '/assets/no-picture.png',
-  }));
-
   const { sortedItems, getSortedItems, updateSortedItems } =
     useSortedItemsContext();
 
   useEffect(() => {
     getSortedItems();
+    // eslint-disable-next-line
   }, []);
 
   // Initial states
@@ -61,14 +55,23 @@ const PersonSortSearch = () => {
         const response = await axios.get(
           `${localhost}/post/persons/find?searchQuery=${term}`
         );
+
         setResults(response.data);
+
+        if (row === 'firstRow' && response.data.length === 0) {
+          setErrorFirstRow('No results found for your search.');
+          setSearchResultsFirstRow([]); // Clear previous results
+        } else if (row === 'secondRow' && response.data.length === 0) {
+          setErrorSecondRow('No results found for your search.');
+          setSearchResultsSecondRow([]); // Clear previous results
+        }
       } catch (error) {
         if (error.response && error.response.status === 404) {
           if (row === 'firstRow') {
-            setErrorFirstRow('No results found for your search.');
+            setErrorFirstRow('Data error');
             setSearchResultsFirstRow([]); // Clear previous results
           } else if (row === 'secondRow') {
-            setErrorSecondRow('No results found for your search.');
+            setErrorSecondRow('Data error');
             setSearchResultsSecondRow([]); // Clear previous results
           }
         }
