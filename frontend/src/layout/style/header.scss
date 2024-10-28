@@ -8,7 +8,9 @@
   margin-top: 0px;
 
   @media only screen and (max-width: 700px) {
-    margin-top: -36px;
+    margin-top: 0;
+    top: 0;
+    border-bottom: 1px solid #eee;
   }
 }
 

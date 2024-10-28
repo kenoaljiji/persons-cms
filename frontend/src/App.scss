@@ -156,6 +156,7 @@ form.custom-search-2 {
 
   @media only screen and (max-width: 993px) {
     display: flex !important;
+    justify-content: space-between;
 
     border-bottom: solid 1px #dedede;
     border-top: solid 1px #ebebeb;
