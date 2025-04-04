@@ -185,4 +185,4 @@ BASE_ROUTE = api
    localhost = '/api';
    }
 
-The application will run on http://localhost:3000 for the frontend and http://localhost:8000/api for the backend (or whichever ports you have configured).I need to improve features. This dashboard CMS is being used for one of my clients.
+The application will run on http://localhost:3000 for the frontend and http://localhost:8000/api for the backend (or whichever ports you have configured).I need to improve features.
