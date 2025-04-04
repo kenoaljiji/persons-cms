@@ -1,6 +1,8 @@
 # Persons CMS Website
 
-This is a custom CMS (Content Management System) built using React for the frontend, Node.js with Express for the backend, and MariaDB as the database. The CMS allows users to dynamically manage content, specifically focused on handling "Persons" in the system. It provides an admin dashboard for performing tasks like adding users, managing posts, sorting persons, tracking system information, and creating database backups.
+This is a custom CMS (Content Management System) built with React (frontend), Node.js with Express (backend), and MariaDB (database). The system allows dynamic management of content, with a primary focus on managing "Persons" within the application. It includes an admin dashboard for tasks such as adding users, managing posts, sorting persons, tracking system information, and generating database backups.
+
+The design is inspired by WikiLeaks. The main purpose of this project is to demonstrate and test functionality.
 
 ## Front Page
 
